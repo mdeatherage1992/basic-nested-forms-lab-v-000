@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  
-  def show 
+
+  def show
     @recipe = Recipe.find(params[:id])
     if @recipe.ingredients.last.try(:name)
       @recipe.ingredients.build
@@ -31,10 +31,11 @@ private
 
 def recipe_params
   params.require(:recipe).permit(
-    :name,
+    :title,
     ingredients_attributes: [
-      :ingredient_quantity,
-      :ingredient_name
+      :id,
+      :quantity,
+      :name
     ]
   )
 end

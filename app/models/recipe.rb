@@ -1,30 +1,5 @@
 class Recipe < ActiveRecord::Base
   has_many :ingredients
+  accepts_nested_attributes_for :ingredients
 
-  def new
-  @recipe = Recipe.new
-  @recipe.ingredients.build(ingredient_name_1: 'pepper')
-  @recipe.ingredients.build(ingredient_name_2: 'salt')
-  end
-
-def create
-  recipe = Recipe.create(recipe_params)
-  redirect_to recipe_path
-end
-
-def index
-  @recipes = Recipe.all
-end
-
-private
-
-def recipe_params
-  params.require(:recipe).permit(
-    :name,
-    ingredients_attributes: [
-      :ingredient_quantity,
-      :ingredient_name
-    ]
-  )
-end
 end

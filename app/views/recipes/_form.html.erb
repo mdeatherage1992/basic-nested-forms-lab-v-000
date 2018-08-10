@@ -1,3 +1,26 @@
 <%= form_for @recipe do |f| %>
-  Title: <%= f.text_field :title %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <%= f.fields_for :recipes do |rec| %>
+    <%= rec.label :street_address_1 %>
+    <%= rec.text_field :street_address_1 %><br>
+
+    <%= rec.label :street_address_2 %>
+    <%= rec.text_field :street_address_2 %><br>
+
+    <%= rec.label :city %>
+    <%= rec.text_field :city %><br>
+
+    <%= rec.label :state %>
+    <%= rec.text_field :state %><br>
+
+    <%= rec.label :zipcode %>
+    <%= rec.text_field :zipcode %><br>
+
+    <%= rec.label :address_type %>
+    <%= rec.text_field :address_type %><br>
+  <% end %>
+
+  <%= f.submit %>
 <% end %>

@@ -5,5 +5,6 @@ class Recipe < ActiveRecord::Base
 
   def erase_empty_ingredients
     self.ingredients = self.ingredients.select {|i| i.name && i.name != '' || i.quantity && i.quantity != ''}
+  end
 
 end

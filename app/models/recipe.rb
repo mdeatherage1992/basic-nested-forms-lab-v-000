@@ -8,11 +8,11 @@ class Recipe < ActiveRecord::Base
   end
 
 def create
-  person = Person.create(person_params)
-  redirect_to people_path
+  recipe = Recipe.create(recipe_params)
+  redirect_to recipe_path
 end
 
 def index
-  @people = Person.all
+  @recipes = Recipe.all
 end
 end

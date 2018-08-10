@@ -3,8 +3,8 @@ class Recipe < ActiveRecord::Base
 
   def new
   @recipe = Recipe.new
-  @recipe.ingredients.build(ingredient_name: 'pepper')
-  @recipe.ingredients.build(ingredient_name: 'salt')
+  @recipe.ingredients.build(ingredient_name_1: 'pepper')
+  @recipe.ingredients.build(ingredient_name_2: 'salt')
   end
 
 def create

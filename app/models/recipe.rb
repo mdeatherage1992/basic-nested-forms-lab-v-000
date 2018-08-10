@@ -15,4 +15,16 @@ end
 def index
   @recipes = Recipe.all
 end
+
+private
+
+def recipe_params
+  params.require(:recipe).permit(
+    :name,
+    ingredients_attributes: [
+      :ingredient_quantity
+      :ingredient_name
+    ]
+  )
+end
 end
